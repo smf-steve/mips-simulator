@@ -1,0 +1,44 @@
+<style type="text/css">
+  #alu {
+  position: absolute;
+  top: 100px;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+ }
+
+ #alu_banner {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+</style>
+
+<div id="alu">
+  <div id="alu_banner">ALU Banner</div>
+  <div id="alu_app">
+    <p>{{ A }}</p>
+    <p>{{ func }} {{ B }}</p>
+    <p>{{ C }}</p>
+
+  </div>
+</div>
+
+
+<script>
+  dragElement(document.getElementById("alu"));
+  var alu_app = new Vue({
+    el: '#alu_app',
+    data: {
+      message: 'Hello Vue!',
+      op_code: '0000',
+      func: "+",
+      A: '0000 0000 0000 0000 0000 0000 0000 0000',
+      B: '0000 0000 0000 0000 0000 0000 0000 0000',
+      C: '0000 0000 0000 0000 0000 0000 0000 0000'
+    }
+  })
+</script>

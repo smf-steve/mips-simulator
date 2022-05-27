@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MIPS Simulator: under development</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="js/dragElement.js"></script>
+</head>
+<style type="text/css">
+  * { font-family: Courier New; }
+  p { margin: 0; }
+
+</style>
+<body>
+  <p> This is the start of the MIPS simulator written in Vue.</p>
+  <p> What we currently have depicted is the various planned panels for simulator.  Each panel (via its banner) is draggable, which will be used later to flesh out the visual design. </p>
+  <p> The panels allow us to see the local state of the simulator as it is developed.
+  </p>
+
+  <!--#include virtual="alu.phtml" -->
+  <!--#include virtual="registers.phtml" -->
+  <!--#include virtual="floats.phtml" -->
+</body>
+</html>
+

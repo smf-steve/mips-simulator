@@ -1,0 +1,2 @@
+
+var wordSize = 32;  

@@ -1,0 +1,121 @@
+<style type="text/css">
+  #registers {
+  position: absolute;
+  top: 100px;
+  left: 500px;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+ }
+
+ #registers_banner {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+  text-align: center;
+
+}
+.group_banner {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #F38621;
+  color: #fff;
+  text-align: center;
+}
+
+</style>
+
+<div id="registers">
+  <div id="registers_banner">CPU Registers</div>
+  <div id="registers_app">
+      <div class="register_group">  
+        <div class="group_banner">Subroutine Group</div>
+        <p>{{ v0.name }}    <button class="button button1">2#</button><input v-model="v0.value"></p>
+        <p>{{ v1.name }}    <button class="button button1">2#</button><input v-model="v1.value"></p>
+        <p>{{ a0.name }}    <button class="button button1">2#</button><input v-model="a0.value"></p>
+        <p>{{ a1.name }}    <button class="button button1">2#</button><input v-model="a1.value"></p>
+        <p>{{ a2.name }}    <button class="button button1">2#</button><input v-model="a2.value"></p>
+        <p>{{ a3.name }}    <button class="button button1">2#</button><input v-model="a3.value"></p>
+        <p>{{ sp.name }}    <button class="button button1">2#</button><input v-model="sp.value"></p>
+        <p>{{ fp.name }}    <button class="button button1">2#</button><input v-model="fp.value"></p>
+        <p>{{ ra.name }}    <button class="button button1">2#</button><input v-model="ra.value"></p>
+      </div>
+      <div class="register_group">
+        <div class="group_banner">Temporary Registers</div>
+        <p>{{ t0.name }}    <button class="button button1">2#</button><input v-model="t0.value"></p>
+        <p>{{ t1.name }}    <button class="button button1">2#</button><input v-model="t1.value"></p>
+        <p>{{ t2.name }}    <button class="button button1">2#</button><input v-model="t2.value"></p>
+        <p>{{ t3.name }}    <button class="button button1">2#</button><input v-model="t3.value"></p>
+        <p>{{ t4.name }}    <button class="button button1">2#</button><input v-model="t4.value"></p>
+        <p>{{ t5.name }}    <button class="button button1">2#</button><input v-model="t5.value"></p>
+        <p>{{ t6.name }}    <button class="button button1">2#</button><input v-model="t6.value"></p>
+        <p>{{ t7.name }}    <button class="button button1">2#</button><input v-model="t7.value"></p>
+        <p>{{ t8.name }}    <button class="button button1">2#</button><input v-model="t8.value"></p>
+        <p>{{ t9.name }}    <button class="button button1">2#</button><input v-model="t9.value"></p>
+      </div>
+      <div class="register_group">
+        <div class="group_banner">Saved Registers</div>
+        <p>{{ s0.name }}    <button class="button button1">2#</button><input v-model="s0.value"></p>
+        <p>{{ s1.name }}    <button class="button button1">2#</button><input v-model="s1.value"></p>
+        <p>{{ s2.name }}    <button class="button button1">2#</button><input v-model="s2.value"></p>
+        <p>{{ s3.name }}    <button class="button button1">2#</button><input v-model="s3.value"></p>
+        <p>{{ s4.name }}    <button class="button button1">2#</button><input v-model="s4.value"></p>
+        <p>{{ s5.name }}    <button class="button button1">2#</button><input v-model="s5.value"></p>
+        <p>{{ s6.name }}    <button class="button button1">2#</button><input v-model="s6.value"></p>
+        <p>{{ s7.name }}    <button class="button button1">2#</button><input v-model="s7.value"></p>
+      </div>
+      <div class="register_group">
+        <div class="group_banner">Reserved Registers</div>
+        <p>{{ zero.name }}  <button class="button button1">2#</button>{{ zero.value }}</p>
+        <p>{{ at.name }}    <button class="button button1">2#</button>{{ at.value }}  </p>
+        <p>{{ k1.name }}    <button class="button button1">2#</button>{{ k1.value }}  </p>
+        <p>{{ k2.name }}    <button class="button button1">2#</button>{{ k2.value }}  </p>
+        <p>{{ gp.name }}    <button class="button button1">2#</button>{{ gp.value }}  </p>
+      </div>
+  </div>
+</div>
+
+
+<script>
+  dragElement(document.getElementById("registers"));
+  var registers_app = new Vue({
+    el: '#registers_app',
+    data: {
+      zero: {name: "$0",  value: '0000 0000'},
+      at:   {name: "at" , value: '0000 0000'},
+      v0:   {name: "v0" , value: '0000 0000 0000 0000 0000 0000 0000 0000'},
+      v1:   {name: "v1" , value: '0000 0000'},
+      a0:   {name: "a0" , value: '0000 0000'},
+      a1:   {name: "a1" , value: '0000 0000'},
+      a2:   {name: "a2" , value: '0000 0000'},
+      a3:   {name: "a3" , value: '0000 0000'},
+      t0:   {name: "t0" , value: '0000 0000'},
+      t1:   {name: "t1" , value: '0000 0000'},
+      t2:   {name: "t2" , value: '0000 0000'},
+      t3:   {name: "t3" , value: '0000 0000'},
+      t4:   {name: "t4" , value: '0000 0000'},
+      t5:   {name: "t5" , value: '0000 0000'},
+      t6:   {name: "t6" , value: '0000 0000'},
+      t7:   {name: "t7" , value: '0000 0000'},
+      s0:   {name: "s0" , value: '0000 0000'},
+      s1:   {name: "s1" , value: '0000 0000'},
+      s2:   {name: "s2" , value: '0000 0000'},
+      s3:   {name: "s3" , value: '0000 0000'},
+      s4:   {name: "s4" , value: '0000 0000'},
+      s5:   {name: "s5" , value: '0000 0000'},
+      s6:   {name: "s6" , value: '0000 0000'},
+      s7:   {name: "s7" , value: '0000 0000'},
+      t8:   {name: "t8" , value: '0000 0000'},
+      t9:   {name: "t9" , value: '0000 0000'},
+      k1:   {name: "k1" , value: '0000 0000'},
+      k2:   {name: "k2" , value: '0000 0000'},
+      gp:   {name: "gp" , value: '0000 0000'},
+      sp:   {name: "sp" , value: '0000 0000'},
+      fp:   {name: "fp" , value: '0000 0000'},
+      ra:   {name: "ra" , value: '0000 0000'}
+    }
+  })
+</script>

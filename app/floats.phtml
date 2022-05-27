@@ -1,0 +1,104 @@
+<!--  
+
+// This is the start of the floating point component
+// Issues/Exploration
+//   Better UI for presenting doubles
+//     fx1: 0000 0000 0000 0000 0000 0000 00000 0000 fx2: 0000 0000 0000 0000 0000 0000 0000 0000
+//     fx1--fx2: 0000 0000 0000 0000 0000 0000 00000 0000 0000 0000 0000 0000 0000 0000 0000 0000
+//   Line up of register labels
+//   Format type should be
+
+
+-->
+
+<style type="text/css">
+  #floats {
+  position: absolute;
+  top: 100px;
+  left: 1000px;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+ }
+
+ #floats_banner {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+  text-align: center;
+}
+.group_banner {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #F38621;
+  color: #fff;
+  text-align: center;
+}
+
+input {
+  width: 260px;
+}
+input.double {
+  width: 520px;
+}
+
+</style>
+
+<div id="floats">
+  <div id="floats_banner">CoProc1 Registers</div>
+  <div id="floats_app">
+    <div class="register_group">  
+      <div class="group_banner">Floating Point</div>
+      <p>{{ f0.name }}, {{ f1.name }} <button class="button">2#</button><input v-model="f0.svalue"><input v-model="f1.svalue"></p>
+      <p>{{ f0.name }}--{{ f1.name }} <button class="button">2#</button><input class="double" v-model="f0.dvalue"></p>
+      <p>{{ f2.name }}, {{ f3.name }} <button class="button">2#</button><input v-model="f2.svalue"><input v-model="f3.svalue"></p>
+      <p>{{ f2.name }}--{{ f3.name }} <button class="button">2#</button><input class="double" v-model="f2.dvalue"></p>
+      <p>{{ f4.name }}, {{ f4.name }} <button class="button">2#</button><input v-model="f4.svalue"><input v-model="f4.svalue"></p>
+      <p>{{ f4.name }}--{{ f5.name }} <button class="button">2#</button><input class="double"v-model="f4.dvalue"></p>
+      </div>
+  </div>
+</div>
+
+
+<script>
+  dragElement(document.getElementById("floats"));
+  var floats_app = new Vue({
+    el: '#floats_app',
+    data: {
+      f0:  { name: "f0",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f1:  { name: "f1",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f2:  { name: "f2",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f3:  { name: "f3",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f4:  { name: "f4",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f5:  { name: "f5",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f6:  { name: "f6",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f7:  { name: "f7",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f8:  { name: "f8",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f9:  { name: "f9",   svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }, 
+      f10: { name: "f10",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f11: { name: "f11",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f12: { name: "f12",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f13: { name: "f13",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f14: { name: "f14",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f15: { name: "f15",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f16: { name: "f16",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f17: { name: "f17",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f18: { name: "f18",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f19: { name: "f19",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f20: { name: "f20",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f21: { name: "f21",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f22: { name: "f22",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f23: { name: "f23",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f24: { name: "f24",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f25: { name: "f25",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f26: { name: "f26",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f27: { name: "f27",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f28: { name: "f28",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f29: { name: "f29",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f30: { name: "f30",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" },
+      f31: { name: "f31",  svalue: "0000 0000 0000 0000 0000 0000 0000 0000", dvalue: "" }} 
+  })
+</script>
